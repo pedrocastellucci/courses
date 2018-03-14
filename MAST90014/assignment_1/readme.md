@@ -3,15 +3,15 @@
 In this folder, you will find:
 
 - Assignment description.
-- [Julia script for running student's codes and example of the folders structure.](src/runCodes.jl)
-- [An example on how to read the input parameters and save an output file.](src/student_1/student_id.jl)
+- [Julia script for running student's codes and example of the folders structure.](runCodes.jl)
+- [An example on how to read the input parameters and save an output file.](student_1/student_id.jl)
 
 
 ## Details on folder structure for automatic running student's code
 
-Consider a parent folder, in which file [*runCodes.jl*](src/runCodes.jl) is placed. For the script to run correctly, we need a sub-folder for *instances* with each of the problems that will be given as input parameter for the student code. Also, there is a sub-folder associated with each student (*student folder*). Each *student folder*, must contain the student submitted Julia file (*.jl*).  It must be the only file with the *.jl* extension.
+Consider a parent folder, in which file [*runCodes.jl*](runCodes.jl) is placed. For the script to run correctly, we need a sub-folder for *instances* with each of the problems that will be given as input parameter for the student code. Also, there is a sub-folder associated with each student (*student folder*). Each *student folder*, must contain the student submitted Julia file (*.jl*).  It must be the only file with the *.jl* extension.
 
-Before the execution of  [*runCodes.jl*](src/runCodes.jl), the folder tree should like the following diagram.
+Before the execution of  [*runCodes.jl*](runCodes.jl), the folder tree should like the following diagram.
 
 <pre>
 parent folder/
@@ -29,7 +29,7 @@ parent folder/
 └── runCodes.jl
 </pre>
 
-After the execution of  [*runCodes.jl*](src/runCodes.jl), for each student, a solution file for each of the instances will be created inside the folder associated with that student. Therefore, the folder tree will look like the following. 
+After the execution of  [*runCodes.jl*](runCodes.jl), for each student, a solution file for each of the instances will be created inside the folder associated with that student. Therefore, the folder tree will look like the following. 
 
 <pre>
 parent folder/
