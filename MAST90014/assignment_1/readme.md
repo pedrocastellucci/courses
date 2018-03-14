@@ -1,7 +1,60 @@
 # The City Logistics Travelling Salesman Problem
 
-In this page, you will find:
+In this folder, you will find:
 
 - Assignment description.
-- [Julia script for running students codes.](src/runCodes.jl)
+- [Julia script for running student's codes and example of the folders structure.](src/runCodes.jl)
 - [An example on how to read the input parameters and save an output file.](src/student_1/student_id.jl)
+
+
+## Details on folder structure for automatic running student's code
+
+Consider a parent folder, in which file [*runCodes.jl*](src/runCodes.jl) is placed. For the script to run correctly, we need a sub-folder for *instances* with each of the problems that will be given as input parameter for the student code. Also, there is a sub-folder associated with each student (*student folder*). Each *student folder*, must contain the student submitted Julia file (*.jl*).  It must be the only file with the *.jl* extension.
+
+Before the execution of  [*runCodes.jl*](src/runCodes.jl), the folder tree should like the following diagram.
+
+<pre>
+parent folder/
+├── instances/
+│   ├── problem_1.in
+│   ├── problem_2.in
+│   ├── problem_3.in
+│   └── problem_4.in
+├── student_1/
+│   └── studentCode.jl
+├── student_2/
+│   └── studentCode.jl
+├── student_3/
+│   └── studentCode.jl
+└── runCodes.jl
+</pre>
+
+After the execution of  [*runCodes.jl*](src/runCodes.jl), for each student, a solution file for each of the instances will be created inside the folder associated with that student. Therefore, the folder tree will look like the following. 
+
+<pre>
+parent folder/
+├── instances/
+│   ├── problem_1.in
+│   ├── problem_2.in
+│   ├── problem_3.in
+│   └── problem_4.in
+├── student_1/
+│   ├── studentCode.jl
+│   ├── problem_1.out
+│   ├── problem_2.out
+│   ├── problem_3.out
+│   └── problem_4.out
+├── student_2/
+│   ├── studentCode.jl
+│   ├── problem_1.out
+│   ├── problem_2.out
+│   ├── problem_3.out
+│   └── problem_4.out
+├── student_3/
+│   ├── studentCode.jl
+│   ├── problem_1.out
+│   ├── problem_2.out
+│   ├── problem_3.out
+│   └── problem_4.out
+└── runCodes.jl
+</pre>
