@@ -15,23 +15,40 @@ function getJuliaExecutable(folder)
 		end
 	end
 
-	println("Error processing folder $folder!. Julia exec not found!")
+	println("Error processing folder $(folder)!. Julia exec not found!")
 	exit(-1)
 end
 
 
 function runExecutables(instancesFolder, outputFolder, juliaExec)
+	# println(instancesFolder)
 	for inputfile in readdir(instancesFolder)
-		outputfile = joinpath(outputFolder, inputfile[1:end-3] * ".out")
-		inputfile = joinpath("..", instancesFolder, inputfile)
 
-		println("Running julia $juliaExec $inputfile $outputfile")
+		outputfile = joinpath(outputFolder, inputfile[1:end-2] * "out")
+		inputfile = joinpath(instancesFolder, inputfile)
+
+		# We are skipping files that do not have the .in extension
+		if inputfile[end-2:end] != ".in"
+			continue
+		end
+
+		# println("Running julia $juliaExec $inputfile $outputfile")
 		run(`julia $juliaExec $inputfile $outputfile`)
+
+		outputfile = basename(inputfile)[1:end-2] * "out"
+		outputfile = joinpath(outputFolder, outputfile)
+
+		println(basename(juliaExec), " ",
+				basename(inputfile), " ",
+			 	basename(outputfile))
+
+		cp(inputfile, outputfile)
 	end
 end
 
-currentFolder = pwd()
-instancesFolder = "instances"
+currentFolder = rstrip(Base.source_path(), ['r', 'u', 'n', 'C', 'o', 'd', 'e', 's', '.', 'j' ,'l'])
+
+instancesFolder = joinpath(currentFolder, "instances")
 
 for filename in readdir(currentFolder)
 	if contains(filename, "student_")
@@ -44,3 +61,5 @@ for filename in readdir(currentFolder)
 		runExecutables(instancesFolder, studentFolder, juliaExec)
 	end
 end
+
+println("END")
